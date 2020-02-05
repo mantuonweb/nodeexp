@@ -3,20 +3,32 @@ import { Routes, RouterModule } from '@angular/router';
 import { NewsComponent } from './components/news/news.component';
 import { MarketComponent } from './components/market/market.component';
 import { ToolsComponent } from './components/tools/tools.component';
-
+import { ContainerComponent } from './container/container.component';
+const _applicationId = "expwithnode"
 const routes: Routes = [
   {
-    path: 'news',
-    component: NewsComponent
+    path:'',
+    redirectTo: _applicationId, pathMatch: 'full'
   },
   {
-    path: 'market',
-    component: MarketComponent
+    
+    path:_applicationId,
+    component:ContainerComponent,
+    children:[{
+      path: 'news',
+      component: NewsComponent
+    },
+    {
+      path: 'market',
+      component: MarketComponent
+    },
+    {
+      path: 'tools',
+      component: ToolsComponent
+    }]
   },
-  {
-    path: 'tools',
-    component: ToolsComponent
-  }
+
+  
 ];
 
 @NgModule({

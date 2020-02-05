@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { NewsComponent } from './components/news/news.component';
 import { MarketComponent } from './components/market/market.component';
 import { ToolsComponent } from './components/tools/tools.component';
+import { ContainerComponent } from './container/container.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsComponent,
     MarketComponent,
-    ToolsComponent
+    ToolsComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,

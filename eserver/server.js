@@ -18,12 +18,20 @@ app.get('*.*', express.static(_app_folder, {maxAge: '1y'}));
 
 // ---- SERVE APLICATION PATHS ---- //
 // app.all(_applicationId+"/"+'*', function (req, res) {
-//     console.log(req.path)
+//     console.log(req.path,'child')
 //     res.status(200).sendFile(`/`, {root: _app_folder});
 // });
 app.all('*', function (req, res) {
-    console.log(req.path)
-    res.status(200).sendFile(`/`, {root: _app_folder});
+    console.log(req.path,getFileExtension(req.path));
+    let fileType = getFileExtension(req.path);
+    let allowedType = ["js","css","ico"];
+    if(allowedType.includes(fileType)){
+        let fileName = req.path.replace(`/${_applicationId}`,'')
+        res.status(200).sendFile(`${fileName}`, {root: _app_folder});
+    }
+    else{
+        res.status(200).sendFile(`/`, {root: _app_folder});
+    }
 });
 app.use(_applicationId+"/*.*", express.static(__dirname + "/app/js"));
 // // ---- SERVE STATIC FILES ---- //
@@ -38,3 +46,10 @@ app.use(_applicationId+"/*.*", express.static(__dirname + "/app/js"));
 app.listen(_port, function () {
     console.log("Node Express server for " + app.name + " listening on http://localhost:" + _port);
 });
+
+function getFileExtension(filename){
+    if(filename.indexOf(".")>0){
+        return filename.split('.').pop();
+    }
+    return '';
+}

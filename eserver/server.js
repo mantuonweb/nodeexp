@@ -1,14 +1,10 @@
-// var express = require('express');
-// var app = express();
-// app.get('*.*', express.static('expwithnode'));
-// app.use('/static', express.static('expwithnode'));
 
-// app.listen(3000);
 "use strict";
 const express = require("express");
 const compression = require("compression");
 
 const _port = 3000;
+const _applicationId = "app"
 const _app_folder = 'expwithnode';
 
 const app = express();

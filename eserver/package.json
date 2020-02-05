@@ -1,0 +1,22 @@
+{
+  "name": "eserver",
+  "version": "1.0.0",
+  "description": "eserver",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/animations": "^8.2.14",
+    "@angular/core": "^8.2.14",
+    "@angular/platform-server": "^8.2.14",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security"
+  },
+  "devDependencies": {
+    "ts-node": "^8.6.2"
+  }
+}
